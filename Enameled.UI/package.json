@@ -1,0 +1,9 @@
+{
+  "name": "angular-setup",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "ng test"
+  },
+  "author": "hiroshi nobuoka",
+  "license": "MIT"
+}
