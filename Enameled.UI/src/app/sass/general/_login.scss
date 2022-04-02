@@ -1,0 +1,14 @@
+.login {
+  .header-container {
+    text-align: center;
+  }
+  .credentials-container {
+    .username, .password {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      width: fit-content;
+    }
+  }
+}

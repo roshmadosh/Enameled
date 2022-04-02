@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="WeirdFolder\**" />
+    <Content Remove="WeirdFolder\**" />
+    <EmbeddedResource Remove="WeirdFolder\**" />
+    <None Remove="WeirdFolder\**" />
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="ng build" />
+  </Target>
+
+</Project>
