@@ -1,10 +1,14 @@
-<div class="app_container container">
+<div class="app-container fluid-container">
   
   <div class="content">
     <div class="breadcrumbs inner">
       <!-- Breadcrumb -->
     </div>
     <router-outlet></router-outlet>
+
+    <div *ngIf="isError" class="alert alert-danger custom-alert" role="alert">
+      <strong>{{ errorMessage }}</strong>
+      <p class="close_error"(click)="closeError()">&times;</p>
+    </div>
   </div>
- 
 </div>

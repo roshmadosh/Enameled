@@ -5,12 +5,18 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
+import { ErrorComponent } from './components/error/error.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
+import { ErrorService } from './services/error.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     LoginComponent,
+    ErrorComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -26,11 +32,12 @@ import { LoginComponent } from './components/login/login.component';
       },
       {
         path:'dashboard',
+        canActivate: [AuthGuard],
         component: DashboardComponent,
       }
     ])
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard, ErrorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
