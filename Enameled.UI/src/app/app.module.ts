@@ -9,6 +9,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { ErrorService } from './services/error.service';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ErrorService } from './services/error.service';
     DashboardComponent,
     LoginComponent,
     ErrorComponent,
+    NavbarComponent,
 
   ],
   imports: [
