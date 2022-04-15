@@ -10,6 +10,8 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { ErrorService } from './services/error.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchComponent } from './components/search/search.component';
+import { CategoriesService } from './services/categories.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginComponent,
     ErrorComponent,
     NavbarComponent,
+    SearchComponent,
 
   ],
   imports: [
@@ -36,10 +39,20 @@ import { NavbarComponent } from './components/navbar/navbar.component';
         path:'dashboard',
         canActivate: [AuthGuard],
         component: DashboardComponent,
+      },
+      {
+        path: 'search',
+        canActivate: [AuthGuard],
+        component: SearchComponent,
       }
     ])
   ],
-  providers: [AuthService, AuthGuard, ErrorService],
+  providers: [
+    AuthService, 
+    AuthGuard, 
+    ErrorService,
+    CategoriesService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

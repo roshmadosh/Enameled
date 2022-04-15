@@ -1,16 +1,5 @@
 .login {
-  display: flex;
-  position: relative;
-  height: 100vh;
-  .login-bg_img {
-    width: 100%;
-    height: 100vh;
-    background-image: url('../../../assets/login-bg.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 0.5;
-    position: absolute;
-  }
+
   .login-content {
     margin: auto;
     padding: 60px 30px 30px;
