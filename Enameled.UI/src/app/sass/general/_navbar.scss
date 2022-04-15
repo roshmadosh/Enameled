@@ -1,8 +1,24 @@
 .custom-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   height: $nav-height;
   border-bottom: 1px solid $highlight-primary;
   box-shadow: -2px 2px 8px 0px rgba(0,0,0, 0.8);
+  font-size: 1.5rem;
+  background-color: $background-color;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  z-index: 2;
+  ul {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    grid-template-rows: 1fr;
+  }
   .icon-container {
-    padding: 12px 15px;
+    
   }
 }
