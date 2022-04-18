@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Category } from '../../models/category.model';
-import { CategoriesService } from '../../services/categories.service';
+import { _CATEGORIES } from '../../enums/categories.enum';
+import { Recipe } from '../../models/recipe.model';
+import { RecipesService } from '../../services/recipes.service';
+
 
 @Component({
   selector: 'app-search',
@@ -9,26 +10,25 @@ import { CategoriesService } from '../../services/categories.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  categories: Category[] = [];
-  selectedCategories: Category[] = [];
-  constructor(private categoriesService: CategoriesService,
-              private router: Router,
-              private route: ActivatedRoute,
+  categories: Array<{ id: string, label: string }> = [...Object.values(_CATEGORIES)];
+  results: Array<Recipe> = [];
+  constructor(private recipeService: RecipesService,
     ) { }
 
   ngOnInit(): void {
-    const storedCategories = JSON.parse(localStorage.getItem('categories') || '[]');
-    if (storedCategories) {
-      this.categories = storedCategories.map((cat: { [x: string]: string; }) => new Category(cat['id'], cat['label']))
-    };
   }
 
-  doIfChecked(event: Event, category: Category) {
+  doIfChecked(event: Event, category: string) {
     const checked = (<HTMLInputElement>event.target).checked;
+    const recipesOfCategory = this.recipeService.getRecipesByCategory(category);
+
     if (checked) {
-      this.selectedCategories.push(category)
+      // add recipes of checked category to results
+      this.results = this.results.concat(recipesOfCategory);
     } else {
-      this.selectedCategories.splice(this.selectedCategories.findIndex(cat => cat['id'] === category['id']),1);
+      // filter out recipes of the checked category
+      const filtered = this.results.filter(recipe => recipe.category !== category);
+      this.results = this.recipeService.sortRecipesBy(filtered, 'dateCreated');
     }
   }
 

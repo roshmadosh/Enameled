@@ -11,7 +11,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { ErrorService } from './services/error.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
-import { CategoriesService } from './services/categories.service';
+import { LoginGuard } from './guards/login.guard';
+import { RecipeComponent } from './components/recipe/recipe.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { CategoriesService } from './services/categories.service';
     ErrorComponent,
     NavbarComponent,
     SearchComponent,
-
+    RecipeComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +34,7 @@ import { CategoriesService } from './services/categories.service';
       },
       {
         path:'login',
+        canActivate:[LoginGuard],
         component: LoginComponent,
       },
       {
@@ -49,9 +51,9 @@ import { CategoriesService } from './services/categories.service';
   ],
   providers: [
     AuthService, 
-    AuthGuard, 
+    AuthGuard,
+    LoginGuard, 
     ErrorService,
-    CategoriesService,
   ],
   bootstrap: [AppComponent]
 })

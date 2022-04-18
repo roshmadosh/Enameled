@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoriesService } from '../../services/categories.service';
+import { _CATEGORIES } from '../../enums/categories.enum';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,11 +7,9 @@ import { CategoriesService } from '../../services/categories.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private categoriesService: CategoriesService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    localStorage.setItem('categories', JSON.stringify(this.categoriesService.get()));
-    console.log('Dashboard init')
   }
 
 }
