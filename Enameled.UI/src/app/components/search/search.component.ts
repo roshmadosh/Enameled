@@ -26,7 +26,6 @@ export class SearchComponent implements OnInit {
       // add recipes of checked category to results
       const updated = this.results.concat(recipesOfCategory);
       const sorted = this.recipeService.sortRecipesBy(updated, 'dateCreated');
-      console.log(sorted);
       this.results = sorted;
     } else {
       // filter out recipes of the checked category

@@ -1,7 +1,7 @@
 <div class="recipe-card">
   <h3 class="recipe-title">{{ recipe['title'] }}</h3>
   <h6 class="recipe-author">{{ recipe['author'] }}</h6>
-  <span class="recipe-date">{{ recipe['dateCreated'] }}</span>
+  <span class="recipe-date">{{ recipe['dateCreated'].toDateString() }}</span>
   <span class="recipe-category">{{ recipe['category'] }}</span>
   <ol class="recipe-instructions">
     <li *ngFor="let instruction of recipe['instructions']">{{ instruction }}</li>

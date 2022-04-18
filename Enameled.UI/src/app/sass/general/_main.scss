@@ -5,7 +5,9 @@ body {
     border-style:none;
   }
 }
-
+.hover {
+  color: $highlight-primary !important;
+}
 .alert {
   padding: 0.5rem 1rem !important;
 }

@@ -13,6 +13,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
 import { LoginGuard } from './guards/login.guard';
 import { RecipeComponent } from './components/recipe/recipe.component';
+import { HoverClassDirective } from './directives/hover-class.directive';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { RecipeComponent } from './components/recipe/recipe.component';
     NavbarComponent,
     SearchComponent,
     RecipeComponent,
+    HoverClassDirective,
   ],
   imports: [
     BrowserModule,

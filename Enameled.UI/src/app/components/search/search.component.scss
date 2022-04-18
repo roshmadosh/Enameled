@@ -1,4 +1,5 @@
 @use '../../sass/config/variables';
+$search-card-height: 400px;
 
 .search_main-container {
   display: grid;
@@ -20,7 +21,6 @@
       grid-template-columns: 1fr 11fr;
     }
   }
-
   .search-results {
     padding: 1rem;
     display: grid;
@@ -30,6 +30,36 @@
     }
     input {
       width: 60%;
+    }
+  }
+  .search-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    .search-result {
+      background-color: variables.$bg-card;
+      display: grid;
+      grid-template-rows: 4fr 1.5fr 1fr 1fr;
+      height: $search-card-height;
+      border-radius: 10px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 1);
+      a {
+        padding: 10px;
+        cursor: pointer;
+        text-decoration: none;
+        color: variables.$font-color-card;
+      }
+      .result-title {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: variables.$font-weight-bold;
+      }
+      img {
+        cursor: pointer;
+        background-color: purple;
+        border-top-left-radius: 9px;
+        border-top-right-radius: 9px;
+      }
     }
   }
 }
