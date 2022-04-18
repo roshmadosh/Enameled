@@ -26,6 +26,12 @@ export class RecipesService {
     _CATEGORIES.JAPANESE['label'],
     new Date('2021-05-27')
   ),
+    new Recipe('Ramen',
+      'ChefLabo',
+      ['heat water', 'cook noodles'],
+      _CATEGORIES.JAPANESE['label'],
+      new Date('2022-01-27')
+    ),
   ]
 
   constructor() { }
@@ -41,7 +47,14 @@ export class RecipesService {
   sortRecipesBy(recipes: Recipe[], param: string) {
     switch(param) {
       case 'dateCreated':
-        return recipes.sort((a,b) =>  a['dateCreated'].getDate() - b['dateCreated'].getDate());
+        return recipes.sort((a,b) => { 
+          if (a['dateCreated'] > b['dateCreated'])
+            return -1;
+          else if (a['dateCreated'] === b['dateCreated'])
+            return 0;
+          else 
+            return 1; 
+        });
       default:
         return [];   
     }
