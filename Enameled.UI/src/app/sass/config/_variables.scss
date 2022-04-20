@@ -1,12 +1,13 @@
 $px-to-rem-factor: 0.0625rem;
 
-$background-color: #2b2b2b;
+$background-color: #EEE;
 $bg-darker: rgba(0,0,0, 0.2);
-$bg-card: rgba(255,255,255, 1);
+$bg-card: #CCC;
 $font-color-card: rgba(0,0,0, 0.9);
-$highlight-primary: #008aff;
+$highlight-primary: rgb(0,138,255);
+$highlight-primary-op7: rgba(0,138,255,0.7);
 $highlight-secondary: #950015;
-$text-color: rgba(255, 255, 255, 0.9);
+$text-color: rgba(0, 0, 0, 0.9);
 $nav-height: 3rem;
 
 // --[BOOTSTRAP OVERRIDES]-- //

@@ -4,12 +4,12 @@
     <div class="cat-checkboxes">
       <ul>
         <li *ngFor="let cat of categories; let i = index">
-          <input 
-            type="checkbox" 
-            class="cat-checkbox" 
-            id="cb_{{i}}"
-            (change)="doIfChecked($event, cat['label'])"
-          >
+            <input 
+              type="checkbox" 
+              class="cat-checkbox" 
+              id="cb_{{i}}"
+              (change)="doIfChecked($event, cat['label'])"
+            >
           <label for="cb_{{i}}">{{ cat['label'] }}</label>
         </li>
       </ul>
@@ -18,7 +18,7 @@
   <div class="search-results">
     <div class="search-searchbar">
       <h2>Search</h2>
-      <input type="text">
+      <input type="text" id="searchbar">
     </div>
     <div class="search-output">
       <h4>Search Results</h4>

@@ -1,20 +1,27 @@
 .login {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
+  background: $background-color;
+  height: 100vh;
   .login-content {
-    margin: auto;
-    padding: 60px 30px 30px;
-    width: 280px;
-    background-color: rgba(255, 255, 255, 0.3);
-    position: relative;
-    z-index: 2;
-    border-radius: 15px;
-    .header-container {
-      text-align: center;
+    padding-top: 15vh;
+    padding-left: 6vw;
+    input {
+      width: 300px;
+      background-color: transparent;
+      border-width: 0 0 2px;
+      border-style: solid;
+      border-color: $highlight-primary;
     }
     .credentials-container {
       button {
-        width: 100%;
+        background-color: $highlight-primary-op7;
+        width: 180px;
       }
     }
+  }
+  .login_image-container {
+    background-color: purple;
   }
 }

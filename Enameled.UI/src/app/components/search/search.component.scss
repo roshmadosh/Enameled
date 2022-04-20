@@ -7,18 +7,12 @@ $search-card-height: 400px;
   gap: 0.5rem;
   .search-filter {
     padding: 1rem;
-    input {
-      margin: auto;
-    }
     ul {
       padding-left: 0;
       padding-inline-start: 0.25rem;
     }
     li {
       list-style-type: none;
-      display: grid;
-      place-content: center;
-      grid-template-columns: 1fr 11fr;
     }
   }
   .search-results {
@@ -32,6 +26,7 @@ $search-card-height: 400px;
       width: 60%;
     }
   }
+
   .search-content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -42,7 +37,7 @@ $search-card-height: 400px;
       grid-template-rows: 4fr 1.5fr 1fr 1fr;
       height: $search-card-height;
       border-radius: 10px;
-      box-shadow: 0 5px 12px rgba(0, 0, 0, 1);
+      box-shadow: 0 5px 5px 1px rgba(0, 0, 0, 1);
       a {
         padding: 10px;
         cursor: pointer;
@@ -63,4 +58,7 @@ $search-card-height: 400px;
     }
   }
 }
+
+
+
 

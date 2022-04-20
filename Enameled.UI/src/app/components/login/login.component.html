@@ -6,20 +6,23 @@
       </div>
       <br>
       <div class="username-container margin_bottom">
-        <input type="text" placeholder="Username" #username>
+        <input type="text" placeholder="Username" onfocus="this.placeholder=''" onblur="this.placeholder='Username'" #username>
       </div>
       <div class="password-container margin_bottom">
-        <input type="password" placeholder="Password" #password>
+        <input type="password" placeholder="Password" onfocus="this.placeholder=''" onblur="this.placeholder='Password'" #password>
       </div>
       <br>
       <div class="button-container">
         <button 
           type="button" 
-          class="btn btn-primary"
+          class="btn"
           (click)="onLoginClick(username.value, password.value)"
         >Login</button>
       </div>
     </div>
+  </div>
+  <div class="login_image-container">
+
   </div>
 </div>
 
