@@ -3,10 +3,20 @@ $search-card-height: 400px;
 
 .search_main-container {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 3fr;
   gap: 0.5rem;
   .search-filter {
-    padding: 1rem;
+    padding: 2.5rem;
+    background-color: rgba(0,0,0, 0.1);
+    .filter-header {
+      h3 {
+        font-family: 'Open Sans', sans-serif;
+        margin-bottom: 20px;
+      }
+      h5 {
+        margin-bottom: 10px;
+      }
+    }
     ul {
       padding-left: 0;
       padding-inline-start: 0.25rem;
@@ -16,47 +26,41 @@ $search-card-height: 400px;
     }
   }
   .search-results {
-    padding: 1rem;
-    display: grid;
-    grid-template-rows: max-content max-content;
-    .search-searchbar {
-      margin-bottom: 1rem;
-    }
-    input {
-      width: 60%;
+    padding: 2.5rem 0;
+    .search-content {
+      padding: 0 2.5rem 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      .search-result {
+        background-color: variables.$background-color;
+        display: grid;
+        border: 1px solid gray;
+        grid-template-rows: 4fr 1.5fr 1fr 1fr;
+        height: $search-card-height;
+        a {
+          padding: 10px;
+          cursor: pointer;
+          text-decoration: none;
+          color: variables.$font-color-card;
+        }
+        span {
+          padding: 0 10px;
+        }
+        .result-title {
+          text-align: center;
+          font-size: 2rem;
+          font-weight: variables.$font-weight-bold;
+        }
+        img {
+          cursor: pointer;
+          background-color: purple;
+        }
+      }
     }
   }
 
-  .search-content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    .search-result {
-      background-color: variables.$bg-card;
-      display: grid;
-      grid-template-rows: 4fr 1.5fr 1fr 1fr;
-      height: $search-card-height;
-      border-radius: 10px;
-      box-shadow: 0 5px 5px 1px rgba(0, 0, 0, 1);
-      a {
-        padding: 10px;
-        cursor: pointer;
-        text-decoration: none;
-        color: variables.$font-color-card;
-      }
-      .result-title {
-        text-align: center;
-        font-size: 2rem;
-        font-weight: variables.$font-weight-bold;
-      }
-      img {
-        cursor: pointer;
-        background-color: purple;
-        border-top-left-radius: 9px;
-        border-top-right-radius: 9px;
-      }
-    }
-  }
+ 
 }
 
 

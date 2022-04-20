@@ -1,6 +1,10 @@
 <div class="search_main-container">
   <div class="search-filter">
-    <h2>Filter</h2>
+    <div class="filter-header">
+      <h3>Find A Recipe </h3>
+      <h5 class="results-count">{{ results.length }} RECIPES</h5>
+    </div>
+    <hr>
     <div class="cat-checkboxes">
       <ul>
         <li *ngFor="let cat of categories; let i = index">
@@ -15,21 +19,16 @@
       </ul>
     </div>
   </div>
+
   <div class="search-results">
-    <div class="search-searchbar">
-      <h2>Search</h2>
-      <input type="text" id="searchbar">
-    </div>
-    <div class="search-output">
-      <h4>Search Results</h4>
-      <div class="search-content">
-        <div class="search-result" *ngFor="let recipe of results">
-          <img src="" alt="">
-          <a class="result-title" hover-class>{{ recipe['title'] }}</a>
-          <a class="result-author">@{{ recipe['author'] }}</a>
-          <span>{{ recipe['category'] }}</span>
-        </div>
+    <h4>Search Results</h4>
+    <div class="search-content">
+      <div class="search-result" *ngFor="let recipe of results">
+        <img src="" alt="">
+        <a class="result-title" hover-class>{{ recipe['title'] }}</a>
+        <a class="result-author">@{{ recipe['author'] }}</a>
+        <span>{{ recipe['category'] }}</span>
       </div>
-    </div> 
+    </div>
   </div>
 </div>

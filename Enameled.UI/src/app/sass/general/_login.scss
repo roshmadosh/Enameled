@@ -12,12 +12,19 @@
       background-color: transparent;
       border-width: 0 0 2px;
       border-style: solid;
-      border-color: $highlight-primary;
+      border-color: $highlight-primary-op7;
+      &:hover {
+        border-color: $highlight-primary;
+      }
     }
     .credentials-container {
       button {
         background-color: $highlight-primary-op7;
         width: 180px;
+        &:hover {
+          color: white;
+          background-color: $highlight-primary;
+        }
       }
     }
   }

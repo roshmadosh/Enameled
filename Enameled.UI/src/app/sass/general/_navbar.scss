@@ -3,13 +3,8 @@
 $transition: 250ms ease-out;
 
 .custom-navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  border: 1px solid gray;
   height: $nav-height;
-  border-bottom: 1px solid $highlight-primary;
-  box-shadow: -2px 2px 8px 0px rgba(0,0,0, 0.8);
   font-size: 1.5rem;
   background-color: $background-color;
   display: grid;

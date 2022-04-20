@@ -1,5 +1,4 @@
 body {
-  width: 100vw;
   height: 100vh;
   input {
     width: 100%;
@@ -24,13 +23,11 @@ body {
   z-index: 3;
   .close_error {
     margin-bottom: 0px !important;
+  
     cursor: pointer;
   }
 }
 
-.content {
-  margin-top: $nav-height;
-}
 // --[Attributes]-- //
 
 .backdrop {
