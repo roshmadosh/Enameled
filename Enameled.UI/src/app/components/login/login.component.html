@@ -1,25 +1,30 @@
 <div class="login fill-content">
   <div class="login-content">
-    <div class="credentials-container">
-      <div class="header-container">
-        <h1>Sign In</h1>
-      </div>
-      <br>
-      <div class="username-container margin_bottom">
-        <input type="text" placeholder="Username" onfocus="this.placeholder=''" onblur="this.placeholder='Username'" #username>
-      </div>
-      <div class="password-container margin_bottom">
-        <input type="password" placeholder="Password" onfocus="this.placeholder=''" onblur="this.placeholder='Password'" #password>
-      </div>
-      <br>
-      <div class="button-container">
-        <button 
-          type="button" 
-          class="btn"
-          (click)="onLoginClick(username.value, password.value)"
-        >Login</button>
-      </div>
+    <h1>Sign In</h1>
+    <br>
+    <div class="username-container margin_bottom">
+      <input type="text" name="username" required autofocus autocomplete="off" #username>
+      <label for="username">
+        <span class="un_span">
+          Username
+        </span>
+      </label>
+
     </div>
+    <div class="password-container margin_bottom">
+      <input type="password" name="password" required #password>
+      <label for="password">
+        <span class="pw_span">
+          Password
+        </span>
+      </label>
+    </div>
+    <br>
+    <button 
+      type="button" 
+      class="btn"
+      (click)="onLoginClick(username.value, password.value)"
+    >Login</button>
   </div>
   <div class="login_image-container">
 

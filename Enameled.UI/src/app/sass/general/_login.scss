@@ -1,31 +1,79 @@
 .login {
   display: grid;
   grid-template-columns: 1fr 1fr;
-
+  h1 {
+    margin-bottom: 30px;
+  }
   background: $background-color;
   .login-content {
-    padding-top: 15vh;
+    width: 300px;
+    padding-top: 40px;
     padding-left: 6vw;
-    input {
-      width: 300px;
-      background-color: transparent;
-      border-width: 0 0 2px;
-      border-style: solid;
-      border-color: $highlight-primary-op7;
-      &:hover {
-        border-color: $highlight-primary;
+    .username-container, .password-container {
+      position: relative;
+      margin-bottom: 32px;    
+      label {
+        position: absolute;
+        left: 0;
+        pointer-events: none;
+        height: 100%;
+        width: 100%;
+        &::after {
+          content: "";
+          display: inline-block;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 80px;
+          border: 0 0 1px; // border width won't shrink
+          border-width: 0.25px;
+          border-color: gray;
+          border-style: solid;
+          transition: all 0.3s ease-out;
+        }
       }
-    }
-    .credentials-container {
-      button {
-        background-color: $highlight-primary-op7;
-        width: 180px;
-        &:hover {
-          color: white;
-          background-color: $highlight-primary;
+      span {
+        position: absolute;
+        transition: all 0.3s ease-out;
+      }
+      input {
+        width: 200px;
+        background-color: transparent;
+        border: 0px;
+        outline: 0px;
+        &::-ms-reveal {
+          display: none;
+        }
+      }
+      input:focus + label,
+      input:valid + label {
+        &::after {
+          width: 200px;
+          border-color: $highlight-primary;
+        }
+        .pw_span {
+          transform: translateX(282%);
+          color: $highlight-primary;
+        }
+        .un_span {
+          transform: translateX(270%);
+          color: $highlight-primary;
         }
       }
     }
+    button {
+      position: relative;
+      left: 200px;
+      top: 40px;
+      background-color: $highlight-primary-op7;
+      width: 170px;
+      &:hover {
+        color: white;
+        background-color: $highlight-primary;
+      }
+
+    }
+    
   }
   .login_image-container {
     background-color: purple;

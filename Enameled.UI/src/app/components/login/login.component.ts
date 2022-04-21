@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
@@ -7,6 +7,8 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './login.component.html',
 })
 export class LoginComponent implements OnInit {
+  @ViewChild('username') usernameInput: ElementRef | undefined;
+  @ViewChild('password') passwordInput: ElementRef | undefined;
   constructor(private router: Router, 
     private authService: AuthService,
   ) { }
@@ -23,5 +25,12 @@ export class LoginComponent implements OnInit {
 
   onLogoutClick() {
     this.authService.logout();
+  }
+
+  focusUsername() {
+    this.usernameInput?.nativeElement.focus();
+  }
+  focusPassword() {
+    this.passwordInput?.nativeElement.focus();
   }
 }
