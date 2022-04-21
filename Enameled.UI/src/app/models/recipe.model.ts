@@ -3,6 +3,7 @@ export class Recipe {
               public author: string,
               public instructions: string[],
               public category: string,
+              public images: string[],
               public dateCreated: Date,
     ) {
     

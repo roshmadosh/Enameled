@@ -28,34 +28,50 @@ $search-card-height: 400px;
   }
   .search-results {
     padding: 2.5rem 0;
+    h4{
+      margin-bottom: 40px;
+    }
     .search-content {
-      padding: 0 2.5rem 0 2rem;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      padding-right: 2.5rem;
+
       .search-result {
+        position: relative;
         background-color: variables.$background-color;
         display: grid;
-        border: 1px solid gray;
-        grid-template-rows: 4fr 1.5fr 1fr 1fr;
-        height: $search-card-height;
-        a {
-          padding: 10px;
-          cursor: pointer;
-          text-decoration: none;
-          color: variables.$font-color-card;
-        }
-        span {
-          padding: 0 10px;
-        }
-        .result-title {
-          text-align: center;
-          font-size: 2rem;
-          font-weight: variables.$font-weight-bold;
+        grid-template-columns: 540px;
+        grid-template-rows:  283px 60px;
+        grid-auto-flow: column;
+        img:hover + .result-info,
+        .result-info:hover,
+        .result-info a:hover + .result-info,
+        .result-info div:hover + .result-info {
+          opacity: 1;
+          visibility: visible;
         }
         img {
           cursor: pointer;
-          background-color: purple;
+          width: 540px;
+          height: 283px;
+        }
+        .result-info {
+          width: 540px;
+          position: absolute;
+          bottom: 60px;
+          background: rgba(0,0,0, 0.7);
+          color: white;
+          visibility: hidden;
+          opacity: 0;
+          transition: visibility 0.8s, opacity 0.8s;
+          a {
+            cursor: pointer;
+            text-decoration: none;
+            color: variables.$highlight-secondary;
+          }
+          .result-title {
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: variables.$font-weight-bold;
+          }
         }
       }
     }

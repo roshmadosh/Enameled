@@ -24,10 +24,11 @@
     <h4>Search Results</h4>
     <div class="search-content">
       <div class="search-result" *ngFor="let recipe of results">
-        <img src="" alt="">
-        <a class="result-title" hover-class>{{ recipe['title'] }}</a>
-        <a class="result-author">@{{ recipe['author'] }}</a>
-        <span>{{ recipe['category'] }}</span>
+        <img src="{{ recipe.images[0] ?? '../assets/default_recipe.jpg'}}" alt="">
+        <div class="result-info">
+          <div class="result-title" hover-class>{{ recipe['title'] }}</div>
+          <a class="result-author">@{{ recipe['author'] }}</a>
+        </div>
       </div>
     </div>
   </div>
