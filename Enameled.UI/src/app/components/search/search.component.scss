@@ -41,12 +41,12 @@ $search-card-height: 400px;
         grid-template-columns: 540px;
         grid-template-rows:  283px 60px;
         grid-auto-flow: column;
+        overflow: hidden;
         img:hover + .result-info,
         .result-info:hover,
         .result-info a:hover + .result-info,
         .result-info div:hover + .result-info {
-          opacity: 1;
-          visibility: visible;
+          transform: translateX(540px);
         }
         img {
           cursor: pointer;
@@ -56,12 +56,11 @@ $search-card-height: 400px;
         .result-info {
           width: 540px;
           position: absolute;
+          left:(-540px);
           bottom: 60px;
           background: rgba(0,0,0, 0.7);
           color: white;
-          visibility: hidden;
-          opacity: 0;
-          transition: visibility 0.8s, opacity 0.8s;
+          transition: transform 0.4s ease;
           a {
             cursor: pointer;
             text-decoration: none;
