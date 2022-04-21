@@ -24,7 +24,7 @@
           position: absolute;
           left: 0;
           bottom: 0;
-          width: 80px;
+          width: max(200px, 70%);
           border: 0 0 1px; // border width won't shrink
           border-width: 0.25px;
           border-color: gray;
@@ -49,16 +49,12 @@
       input:focus + label,
       input:valid + label {
         &::after {
-          width: max(200px, 50%);
           border-color: $highlight-primary;
         }
-        .pw_span {
-          transform: translateX(max(210px, 52%));
+        span {
+          font-size: 14px;
           color: $highlight-primary;
-        }
-        .un_span {
-          transform: translateX(max(210px, 52%));
-          color: $highlight-primary;
+          transform: translateY(-20px);
         }
       }
     }
@@ -75,6 +71,7 @@
     
   }
   .login_image-container {
-    background-color: purple;
+    background-image: url('../../../assets/login1.jpg');
+    background-size: cover;
   }
 }
