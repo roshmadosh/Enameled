@@ -15,14 +15,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onDashClick() {
-    this.router.navigate(['/dashboard']);
-  }
-
-  onSearchClick() {
-    this.router.navigate(['/search']);
-  }
-
   onSignOut() {
     this.authService.logout();
     this.router.navigate(['/login']);
