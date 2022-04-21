@@ -6,7 +6,7 @@
   }
   background: $background-color;
   .login-content {
-    width: 300px;
+    position: relative;
     padding-top: 40px;
     padding-left: 6vw;
     .username-container, .password-container {
@@ -34,10 +34,11 @@
       }
       span {
         position: absolute;
+        width: 100%;
         transition: all 0.3s ease-out;
       }
       input {
-        width: 200px;
+        width: max(200px, 50%);
         background-color: transparent;
         border: 0px;
         outline: 0px;
@@ -48,25 +49,23 @@
       input:focus + label,
       input:valid + label {
         &::after {
-          width: 200px;
+          width: max(200px, 50%);
           border-color: $highlight-primary;
         }
         .pw_span {
-          transform: translateX(282%);
+          transform: translateX(max(210px, 52%));
           color: $highlight-primary;
         }
         .un_span {
-          transform: translateX(270%);
+          transform: translateX(max(210px, 52%));
           color: $highlight-primary;
         }
       }
     }
     button {
-      position: relative;
-      left: 200px;
-      top: 40px;
+      position: absolute;
       background-color: $highlight-primary-op7;
-      width: 170px;
+      right: max(5%, 20px);
       &:hover {
         color: white;
         background-color: $highlight-primary;
