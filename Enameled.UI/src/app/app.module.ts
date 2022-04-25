@@ -14,6 +14,7 @@ import { SearchComponent } from './components/search/search.component';
 import { LoginGuard } from './guards/login.guard';
 import { RecipeComponent } from './components/recipe/recipe.component';
 import { HoverClassDirective } from './directives/hover-class.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HoverClassDirective } from './directives/hover-class.directive';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -48,6 +50,11 @@ import { HoverClassDirective } from './directives/hover-class.directive';
         path: 'search',
         canActivate: [AuthGuard],
         component: SearchComponent,
+      },
+      {
+        path: '**',
+        component: ErrorComponent,
+        data: { message: 'Page not found'},
       }
     ])
   ],

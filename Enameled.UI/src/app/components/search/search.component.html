@@ -4,20 +4,23 @@
       <h3>Find A Recipe </h3>
       <h5 class="results-count">{{ results.length }} RECIPES</h5>
     </div>
-    <hr>
-    <div class="cat-checkboxes">
-      <ul>
-        <li *ngFor="let cat of categories; let i = index">
-            <input 
-              type="checkbox" 
-              class="cat-checkbox" 
-              id="cb_{{i}}"
-              (change)="doIfChecked($event, cat['label'])"
-            >
-          <label for="cb_{{i}}">{{ cat['label'] }}</label>
-        </li>
-      </ul>
+    <div class="search-params">
+      <div class="cat-checkboxes">
+        <h5>CATEGORIES</h5>
+        <ul>
+          <li *ngFor="let cat of categories; let i = index">
+              <input 
+                type="checkbox" 
+                class="cat-checkbox" 
+                id="cb_{{i}}"
+                (change)="doIfChecked($event, cat['label'])"
+              >
+            <label for="cb_{{i}}">{{ cat['label'] }}</label>
+          </li>
+        </ul>
+      </div>
     </div>
+      
   </div>
 
   <div class="search-results">

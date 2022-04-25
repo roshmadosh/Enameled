@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService, User } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +9,7 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent implements OnInit {
   @ViewChild('username') usernameInput: ElementRef | undefined;
   @ViewChild('password') passwordInput: ElementRef | undefined;
+  fetchedUser: User | undefined;
   constructor(private router: Router, 
     private authService: AuthService,
   ) { }
@@ -19,8 +20,7 @@ export class LoginComponent implements OnInit {
 
   onLoginClick(username: string, password: string) {
     this.authService.logout();
-    this.authService.login(username, password);
-    this.router.navigate(['dashboard']);
+    this.authService.login({ username, password });
   }
 
   onLogoutClick() {
