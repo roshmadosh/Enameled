@@ -9,6 +9,7 @@ export interface User {
   id: string;
   username: string;
   token: string;
+  expires: string;
 }
 
 @Injectable()
@@ -17,15 +18,14 @@ export class AuthService {
   loggedIn: boolean = false;
   fetchedUser: User | undefined;
 
-
   constructor(private errorService: ErrorService,
               private router: Router,
               private http: HttpClient) {
   }
 
-
   isLoggedIn(): Promise<boolean> {
-    if (localStorage.getItem('token')) {
+    const expiresAt: string = localStorage.getItem('em_expires') ?? '';
+    if (localStorage.getItem('em_token') && Date.parse(expiresAt) > Date.now()) {
       this.loggedIn = true;
     } else {
       this.loggedIn = false;
@@ -33,15 +33,11 @@ export class AuthService {
     return Promise.resolve(this.loggedIn);
   }
   login(user: { username: string, password: string }) {
-    // if (username === 'admin' && password === 'password') {
-    //   localStorage.setItem('token', username);
-    // } else {
-    //   this.errorService.enableError('Invalid credentials.');
-    // }
     this.http.post<User>('http://localhost:4000/users/authenticate', { username: user.username, password: user.password })
           .subscribe({
             next: data => {
-              localStorage.setItem('token', data.id);
+              localStorage.setItem('em_token', data.token);
+              localStorage.setItem('em_expires', data.expires);
             },
             error: error => {
               this.errorService.enableError('Invalid credentials.');
@@ -54,6 +50,7 @@ export class AuthService {
           })
   }
   logout() {
-    localStorage.removeItem('token');
+    localStorage.removeItem('em_token');
+    localStorage.removeItem('em_expires');
   }
 }

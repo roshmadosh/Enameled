@@ -21,6 +21,8 @@ namespace Enameled.API.Services
 
     public class UserService : IUserService
     {
+        private DateTime _expires = DateTime.UtcNow.AddMinutes(60);
+
         // users hardcoded for simplicity, store in a db with hashed passwords in production applications
         private List<User> _users = new List<User>
         {
@@ -44,7 +46,7 @@ namespace Enameled.API.Services
             // authentication successful so generate jwt token
             var token = generateJwtToken(user);
 
-            return new AuthenticateResponse(user, token);
+            return new AuthenticateResponse(user, token, _expires);
         }
 
         public IEnumerable<User> GetAll()
@@ -67,7 +69,7 @@ namespace Enameled.API.Services
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[] { new Claim("id", user.Id.ToString()) }),
-                Expires = DateTime.UtcNow.AddDays(7),
+                Expires = _expires,
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);

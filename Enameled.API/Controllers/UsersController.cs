@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Enameled.API.Helpers;
 using Enameled.API.Models;
 using Enameled.API.Services;
-
+using System;
 
 namespace Enameled.API.Controllers
 {
@@ -11,7 +12,6 @@ namespace Enameled.API.Controllers
     public class UsersController : ControllerBase
     {
         private IUserService _userService;
-
 
         public UsersController(IUserService userService)
         {
@@ -27,6 +27,12 @@ namespace Enameled.API.Controllers
             {
                 return BadRequest(new { message = "Username or password is incorrect" });
             }
+
+            /* //NOT STORING JWT IN COOKIE, SEE https://blog.angular-university.io/angular-jwt-authentication/
+            CookieOptions cookieOptions = new CookieOptions();
+            cookieOptions.Expires = new DateTimeOffset(DateTime.Now.AddMinutes(5));
+            HttpContext.Response.Cookies.Append("token", response.Token, cookieOptions);
+            */
 
             return Ok(response);
         }
