@@ -20,12 +20,16 @@
       </label>
     </div>
     <br>
-    <button 
+    <div class="signup_or_login">
+      <a routerLink="/create-account">Don't have an account? Create one.</a>
+      <button 
       type="button" 
       class="btn"
       (click)="onLoginClick(username.value, password.value)"
     >Login</button>
+    </div>
   </div>
+    
   <div class="login_image-container">
 
   </div>

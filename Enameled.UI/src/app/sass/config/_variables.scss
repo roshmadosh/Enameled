@@ -5,7 +5,8 @@ $bg-darker: rgba(0,0,0, 0.2);
 $bg-card: #CCC;
 $font-color-card: rgba(0,0,0, 0.9);
 $highlight-primary: rgb(0,138,255);
-$highlight-primary-op7: rgba(0,138,255,0.7);
+$highlight-primary-op7: rgba(0,138,255,0.7); // replaced by $highlighted-brightness
+$highlighted-brightness: 70%;
 $highlight-secondary: #f37e11;
 $text-color: rgba(0, 0, 0, 0.9);
 $nav-height: 55px;

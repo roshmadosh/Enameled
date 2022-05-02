@@ -15,6 +15,8 @@ import { LoginGuard } from './guards/login.guard';
 import { RecipeComponent } from './components/recipe/recipe.component';
 import { HoverClassDirective } from './directives/hover-class.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,11 @@ import { HttpClientModule } from '@angular/common/http';
     SearchComponent,
     RecipeComponent,
     HoverClassDirective,
+    CreateAccountComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
       {
@@ -50,6 +54,10 @@ import { HttpClientModule } from '@angular/common/http';
         path: 'search',
         canActivate: [AuthGuard],
         component: SearchComponent,
+      },
+      {
+        path: 'create-account',
+        component: CreateAccountComponent,
       },
       {
         path: '**',

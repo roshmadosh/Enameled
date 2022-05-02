@@ -11,6 +11,7 @@ export class LoginGuard implements CanActivate {
       .then(
         (loggedIn: boolean) => {
           if (!loggedIn) { 
+            this.authService.logout();
             return true;
           } else {
             this.router.navigate(['dashboard']);

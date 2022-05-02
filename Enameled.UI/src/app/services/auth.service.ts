@@ -25,13 +25,14 @@ export class AuthService {
 
   isLoggedIn(): Promise<boolean> {
     const expiresAt: string = localStorage.getItem('em_expires') ?? '';
+    console.log(new Date(expiresAt));
     if (localStorage.getItem('em_token') && Date.parse(expiresAt) > Date.now()) {
       this.loggedIn = true;
     } else {
       this.loggedIn = false;
-    }
-    return Promise.resolve(this.loggedIn);
+    } return Promise.resolve(this.loggedIn);
   }
+
   login(user: { username: string, password: string }) {
     this.http.post<User>('http://localhost:4000/users/authenticate', { username: user.username, password: user.password })
           .subscribe({

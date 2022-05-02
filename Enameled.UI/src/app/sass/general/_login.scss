@@ -58,15 +58,28 @@
         }
       }
     }
-    button {
-      position: absolute;
-      background-color: $highlight-primary-op7;
-      right: max(5%, 20px);
-      &:hover {
-        color: white;
-        background-color: $highlight-primary;
+    .signup_or_login {
+      display: flex;
+      justify-content: space-between;
+      a {
+        align-self: end;
+        cursor: pointer;
+        color: $highlight-primary;
+        text-decoration: none;
+        &:hover {
+          color: $highlight-primary-op7;
+        }
       }
-
+      button {
+        // position: absolute;
+        background-color: $highlight-primary-op7;
+        // right: max(5%, 20px);
+        margin-right: 10%;
+        &:hover {
+          color: white;
+          background-color: $highlight-primary;
+        }
+      } 
     }
     
   }
